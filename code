@@ -1,0 +1,41 @@
+-- This is the first query:
+
+SELECT DISTINCT year from population_years;
+
+--This determines all the distinct years in the data set.
+
+-- Add your additional queries below:
+--This is the second query
+--This determines the greatest population of Gabon during the years in the dataset
+
+SELECT country, population
+FROM population_years
+WHERE country = 'Gabon'
+ORDER BY population DESC
+LIMIT 1;
+
+--This determines the countries with the ten lowest populations
+
+SELECT population
+FROM population_years
+WHERE population IS NOT NULL
+ORDER BY population ASC
+LIMIT 10;
+
+--This determines all the countries in 2010 that have a population over 100 million
+
+SELECT DISTINCT country, population
+FROM population_years
+WHERE population > 100 AND year = '2010';
+
+--This determines all the countries that contain "Island" in their name
+
+SELECT DISTINCT country
+FROM population_years
+WHERE country LIKE '%Islands%';
+
+This determines the population of Indonesia in 2010 and 2000 to find the difference
+
+SELECT country, population, year
+FROM population_years
+WHERE country = 'Indonesia' AND year = '2000' OR country = 'Indonesia' AND year = '2010';
